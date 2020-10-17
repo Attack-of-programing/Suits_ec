@@ -1,3 +1,37 @@
-// Place all the styles related to the customer::homes controller here.
+// Place all the styles related to the admin::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-visual {
+    background-image: url("/assets/customer_top.jpg");
+    width: 100%;
+    height: 400px;
+    display: flex; /* 子要素の上下左右中央寄せするために追記 */
+    background-position: center; /* 背景画像の中央表示 */
+    background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
+}
+
+.main-visual-text-box {
+    margin: auto; /* 要素の上下左右中央寄せ */
+    padding: 20px; /* 要素内に20pxの余白 */
+    background-color:rgba(255,255,255,0.8); /* 背景の半透明化 */
+}
+
+.recommend-products-area {
+    width: 100%;
+    display: flex; /* Flexboxの利用 */
+    flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
+    background-color: orange; /* 仮置き背景 後で消す！ */
+}
+
+.recommend-products-area .product-area {
+    width: 20%;
+    height: 200px; /* 仮置き高さ 後で消す！ */
+    margin-right: 6%;
+    margin-bottom: 10px;
+    background-color: pink; /* 仮置き背景 後で消す！ */
+}
+
+.recommend-products-area .product-area:nth-child(4) {
+    margin-right: 0px; /* 4つ目の商品のみ右側余白を0pxに */
+}
