@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   #管理者deviseのコントローラーのパスを任意のパスに変更
   devise_for :admins, controllers: {
     sessions: 'admin/sessions'
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/about' => 'customer/homes#about'
   #管理者トップページのルーティング
   get '/admin' => 'admin/homes#top'
+
   
-  
+
 end
