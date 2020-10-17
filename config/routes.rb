@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
     resources :products, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :ordered_products, only: [:update]
+    resources :order_products, only: [:update]
   end
   
   # 会員側のルーティング
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
         delete '' => 'cart_items#destroy_all'
       end
     end
-    resources :products, only: [:index, :edit, :create, :update, :destroy]
+    resources :shippings, only: [:index, :edit, :create, :update, :destroy]
     resources :order_products, only: [:update]
   end
   
