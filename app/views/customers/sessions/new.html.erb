@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+
+
+<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+
+<div class="col-xs-offset-2 col-xs-8 col-offset-2" style="margin-top: 100px;">
+
+<form class= "form-horizontal" >
+  <div class="form-group">
+    <p>会員の方はこちらからログイン</p>
+    <label class="col-xs-4 control-label">メールアドレス</label>
+    <div class="col-xs-4">
+    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-control">パスワード</label>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+</form>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+  </div>
+</div>
+
+<%= render "customers/shared/links" %>
+
+
