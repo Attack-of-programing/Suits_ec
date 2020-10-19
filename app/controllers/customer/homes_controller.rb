@@ -1,6 +1,8 @@
 class Customer::HomesController < ApplicationController
 
-  def about
+  def top
+  end
 
+  def about
   end
 end

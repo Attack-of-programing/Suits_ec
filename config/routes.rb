@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     sessions: 'customers/sessions'
   }
   # 管理者ログイン画面のルーティング
+  # セッションパス修正admin→admins
   devise_for :admins, controllers: {
-    sessions: 'admin/sessions'
+    sessions: 'admins/sessions'
   }
 
   # 管理者側の各機能のルーティング
