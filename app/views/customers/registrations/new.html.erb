@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="row">
 
@@ -21,7 +23,7 @@
       </div>
 
       <div class="row form-group">
-        <label class="col-xs-3 control-label"> 名前</label>
+        <label class="col-xs-3 control-label"> フリガナ</label>
         <div class="col-xs-4">
           （セイ）<%= f.text_field :last_name_kana, class: "form-control",autofocus: true, autocomplete: "姓", placeholder: "セイ" %>
         </div>
@@ -31,7 +33,7 @@
       </div>
 
       <div class="row form-group">
-        <label class="col-xs-3 control-label"> フリガナ</label>
+        <label class="col-xs-3 control-label"> メールアドレス</label>
         <div class="col-xs-4" >
           <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
         </div>
@@ -92,3 +94,5 @@
 
   </div>
 </div>
+
+<%= render 'customer/footer' %>
