@@ -1,0 +1,98 @@
+
+
+<div class="container">
+  <div class="row">
+
+<%= form_with model: @customer, url: customer_registration_path(current_customer), local: true do |f| %>
+  <%= render "customers/shared/error_messages", resource: resource %>
+
+    <div class="col-xs-10">
+
+      <div class="bg-danger">
+        <h4>新規会員登録</h4>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> 名前</label>
+        <div class="col-xs-4">
+          （姓）<%= f.text_field :last_name, class: "form-control",autofocus: true, autocomplete: "last_name", placeholder: "姓" %>
+        </div>
+        <div class="col-xs-4">
+          （名）<%= f.text_field :first_name, class: "form-control",autofocus: true, autocomplete: "first_name", placeholder: "名" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> フリガナ</label>
+        <div class="col-xs-4">
+          （セイ）<%= f.text_field :last_name_kana, class: "form-control",autofocus: true, autocomplete: "姓", placeholder: "セイ" %>
+        </div>
+        <div class="col-xs-4">
+          （メイ）<%= f.text_field :first_name_kana, class: "form-control",autofocus: true, autocomplete: "name", placeholder: "メイ" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> メールアドレス</label>
+        <div class="col-xs-4" >
+          <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> 郵便番号（ハイフンなし）</label>
+        <div class="col-xs-4" >
+          <%= f.text_field :postcode, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "郵便番号" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> 住所</label>
+        <div class="col-xs-8" >
+          <%= f.text_field :address, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "住所" %>
+        </div>
+      </div>
+
+     <div class="row form-group">
+        <label class="col-xs-3 control-label"> 電話番号（ハイフンなし）</label>
+        <div class="col-xs-4" >
+          <%= f.text_field :phone_number, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "電話番号" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> パスワード（６文字以上）</label>
+        <div class="col-xs-4">
+          <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "パスワード" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> パスワード（確認用）</label>
+        <div class="col-xs-4">
+          <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", placeholder: "パスワード（確認用）" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-xs-4 col-xs-offset-4">
+          <%= f.submit "新規登録", class: "btn btn-success btn-block" %>
+        </div>
+      </div>
+
+      <div class="bg-danger">
+        <h4>既に登録済みの方</h4>
+      </div>
+      <div class="row form-group" >
+        <div class="col-xs-12">
+          <%= link_to "こちら" , new_customer_session_path %>からログインしてください。
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+  </div>
+</div>
+
+<%= render 'customer/footer' %>

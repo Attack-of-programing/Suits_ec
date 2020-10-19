@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   # devise関連のコントローラのルーティングを任意のパスに変更
   # 会員新規登録画面、ログイン画面のルーティング
   devise_for :customers, controllers: {
-    registrations: 'customer/registrations',
-    sessions: 'customer/sessions'
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
   }
   # 管理者ログイン画面のルーティング
   devise_for :admins, controllers: {
