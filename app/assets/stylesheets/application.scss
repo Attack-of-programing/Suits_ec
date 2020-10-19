@@ -21,9 +21,9 @@ header {
     height: 90px;
 }
 .nav > li > a {
-padding-top: 5px;
-padding-bottom: 5px;
-margin: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 20px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -34,3 +34,14 @@ margin: 20px;
     margin: 20px;
 }
 
+.title {
+    display: inline-block;
+    margin-left: 10%;
+    margin-bottom: 30px;
+    padding: 3px;
+    background-color: #f8f8f8;
+}
+
+#error_explanation {
+  color: red;
+}
