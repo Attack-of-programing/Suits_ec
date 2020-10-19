@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-default">
+<header class="navbar navbar-default">
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
       <font size="5"><strong>Suits_ec</strong></font>
@@ -6,7 +6,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if customer_signed_in? %>
-          <li><%= link_to ' マイページ', customer_path(current_user), class: 'btn btn-info' %></li>
+          <li><%= link_to ' マイページ', customers_path(current_customer), class: 'btn btn-info' %></li>
           <li><%= link_to ' 商品一覧', products_path, class: 'btn btn-info'  %></li>
           <li><%= link_to ' カート', cart_items_path, class: 'btn btn-info' %></li>
           <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete, class: 'btn btn-info'  %></li>

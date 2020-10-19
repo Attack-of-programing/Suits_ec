@@ -1,0 +1,48 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+
+
+      <div class="bg-danger">
+       <h2 class="title">ジャンル一覧・追加</h2>
+      </div>
+
+
+
+<!--ジャンル登録フォーム-->
+<%= form_with model: @genre, url: admin_genres_path(params[:id]), local: true do |f| %>
+<form class="form-horizontal">
+  <div class="row form-group", style="margin:50px 0" >
+    <label class="col-xs-2 control-label">ジャンル</label>
+    <div class="col-xs-5">
+    <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <label class="col-xs-2"><%= f.radio_button :is_active, "true" %>有効</label>
+    <label class="col-xs-2"><%= f.radio_button :is_active, "false" %>無効</label>
+    <label class="col-xs-1"><%= f.submit "追加", class: "btn btn-primary" %></label>
+</form>
+<% end %>
+
+<table class="table">
+  <thead>
+    <%= @genres.each do |genre| %>
+    <tr>
+      <th>ジャンル</th>
+      <th>状態</th>
+      <th colspan=1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= genre.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+</div>
+</div>
+</div>
