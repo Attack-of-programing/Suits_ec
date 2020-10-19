@@ -15,4 +15,3 @@ class Product < ApplicationRecord
 	validates :after_tax_price, numericality: { only_integer: true }
     
 end
-git
