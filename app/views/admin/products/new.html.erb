@@ -1,14 +1,19 @@
-<%= render 'customer/customer_header' %>
+<%= render 'admin/admin_header' %>
 <div class="container">
   <h2 class="title">商品新規登録</h2>
   <div class="row">
     <!-- エラーメッセージ表示-->
     <%= render "layouts/errors", obj: @product %>
+    
     <!-- 商品の新規登録フォーム -->
     <%= form_with model: @product, url: admin_products_path, method: :post, local: true do |f| %>
 
     	<div class="col-xs-4">
   	    <!--ここから　商品画像のプレビューは余裕があればAjaxで実装-->
+  	    <div class="img_field">
+          <%= attachment_image_tag(@product, :image, size: "300x220") %>
+        </div>
+        
   	    <!--ここまで　商品画像のプレビューは余裕があればAjaxで実装-->
       	<div class="field">
       		<%= f.attachment_field :image %>
@@ -16,38 +21,12 @@
       </div>
       
       <div class="col-xs-8">
-        <div class="form-group">
-    		  <%= f.label "商品名", class: "col-sm-3 control-label" %>
-      		<%= f.text_field :name %>
-      	</div>
-      	
-      	<div class="form-group">
-      		<%= f.label "商品説明", class: "col-sm-3 control-label" %>
-      		<%= f.text_area :explanation %>
-      	</div>
-      	
-      	<div class="form-group">
-      		<%= f.label "ジャンル", class: "col-sm-3 control-label" %>
-      		<!--ここから ジャンル機能が実施された後、必ず消す-->
-      		<%= f.text_field :genre_id %>
-      		<!--ここまで ジャンル機能が実施された後、必ず消す-->
-      		<!-- f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") -->
-      	</div>
-      	
-      	<div class="form-group">
-      		<%= f.label "税別価格", class: "col-sm-3 control-label" %>
-      		<%= f.text_field :after_tax_price %>円
-      	</div>
-      	
-      	<div class="form-group">
-      		<%= f.label "販売ステータス", class: "col-sm-3 control-label" %>
-      		<%= f.select :is_sale, [['販売中',true],['販売停止中',false]], {include_blank: '--選択してください--'} %>
-      	</div>
+        <!--商品情報入力フォームの部分テンプレート呼び出し-->
+        <%= render "product_form",f: f %>
       	
       	<div class="actions col-xs-9">
   	      <%= f.submit "新規登録", class: "btn btn-primary btn-lg pull-right" %>
         </div>
-      	
       </div>
     <% end %>
   </div>
