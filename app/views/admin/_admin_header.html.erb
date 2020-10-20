@@ -14,7 +14,7 @@
           <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class: 'btn btn-info'  %></li>
         <% else %>
           <li><%= link_to ' About', about_path, class: 'btn btn-info '  %></li>
-          <li><%= link_to ' 商品一覧', admin_customers_path, class: 'btn btn-info'  %></li>
+          <li><%= link_to ' 商品一覧', admin_products_path, class: 'btn btn-info'  %></li>
           <li><%= link_to ' 新規登録', new_admin_registration_path, class: 'btn btn-info'  %></li>
           <li><%= link_to ' ログイン', new_admin_session_path, class: 'btn btn-info' %></li>
         <% end %>
