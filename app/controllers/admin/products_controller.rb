@@ -5,6 +5,10 @@ class Admin::ProductsController < ApplicationController
   # ジャンルの取得が必要なメソッドでは、先にジャンルを取得しておく
   before_action :set_genres, only: [:new, :edit, :index, :create, :update]
   
+  def index
+    @products = Product.all.page(params[:page]).per(10)
+  end
+  
   def new
     # 新規商品用のインスタンス変数
     @product = Product.new

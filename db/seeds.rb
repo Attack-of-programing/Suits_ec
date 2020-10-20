@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# # 管理者ログインデータの作成
-# Admin.create!(
-#   email: "Suits_ec_admin@gmail.com",
-#   password: "Suits_ec",
-#   password_confirmation: "Suits_ec",
-# )
+# 管理者ログインデータの作成
+Admin.create!(
+  email: "Suits_ec_admin@gmail.com",
+  password: "Suits_ec",
+  password_confirmation: "Suits_ec",
+)
   
 #ジャンルデータの作成
 Genre.create!(
@@ -28,3 +28,15 @@ Genre.create!(
   name: "紫芋ケーキ",
   is_active: false
 )
+
+20.times do |number|
+  Product.create!(
+    name: number,
+    explanation: "説明",
+    genre_id: 1,
+    after_tax_price: 1000,
+    is_sale: true,
+    image_id: "1"
+  )
+end
+
