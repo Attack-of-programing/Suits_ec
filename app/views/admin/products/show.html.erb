@@ -1,0 +1,51 @@
+<%= render 'admin/admin_header' %>
+<div class="container">
+  <h2 class="title">商品詳細</h2>
+  <div class="row">
+    
+    <!--商品画像の表示-->
+    <div class="col-xs-4">
+	    <%= attachment_image_tag(@product, :image, size: "300x220", fallback: "no_image.jpg") %>
+  	</div>
+    
+    <!--商品情報の表示-->
+    <div class="col-xs-8">
+        <!--商品名-->
+        <div class="field">
+  				<strong class="col-sm-3 control-label">商品名</strong>
+  				<span class="col-sm-4 control-label"><%= @product.name %></span>
+				</div></br>
+        <!--商品説明-->
+        <div class="field">
+          <strong class="col-sm-3 control-label">商品説明</strong>
+  				<span class="col-sm-4 control-label"><%= @product.explanation %></span></br>
+        </div></br>
+        <!--ジャンル-->
+        <div class="field">
+          <strong class="col-sm-3 control-label">ジャンル</strong>
+  				<span class="col-sm-4 control-label"><%= @product.genre.name %></span></br>
+        </div></br>
+        <!--価格-->
+        <div class="field">
+          <strong class="col-sm-3 control-label">税込価格（税別価格）</strong>
+  				<span class="col-sm-6 control-label"><%= @product.tax_included.to_s(:delimited) %>（<%= @product.after_tax_price.to_s(:delimited) %>）円</span></br>
+        </div></br>
+        <!--販売ステータス-->
+        <div class="field">
+          <strong class="col-sm-3 control-label">販売ステータス</strong>
+  				<span class="col-sm-4 control-label">
+    				<% if @product.is_sale == true %>
+  					　販売中
+  					<% elsif @product.is_sale == false %>
+  					　販売停止中
+  					<% end %>
+  				</span></br>
+        </div></br>
+        <!--編集ボタン-->
+        <div class="actions col-xs-9">
+  	      <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-primary btn-lg pull-right" %>
+        </div>
+    </div>
+    
+  </div>
+</div>
