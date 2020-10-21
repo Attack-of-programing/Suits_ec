@@ -6,7 +6,8 @@ class Admin::ProductsController < ApplicationController
   before_action :set_genres, only: [:new, :edit, :index, :create, :update]
   
   def index
-    @products = Product.all.page(params[:page]).per(10)
+    # ジャンルが有効である商品を全て取得する。1ページ10個表示する。
+    @products = Product.eager_load(:genre).where(genres: {is_active: true}).all.page(params[:page]).per(10)
   end
   
   def new

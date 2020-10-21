@@ -1,0 +1,13 @@
+<div class="product-area">
+  <%= link_to product_path(product.id) do %>
+    <%= attachment_image_tag(product, :image, :fill, 150, 100, fallback: "no_image.jpg", class:"img-responsive img-thumbnail product-image") %>
+    <p><strong><%= product.name %></strong></p>
+  <% end %>
+
+  <% if product.is_sale == true %>
+    <p><strong>¥<%= product.after_tax_price.to_s(:delimited) %></strong></p>
+  <% elsif product.is_sale == false %>
+    <p><strong>売切れ</strong></p>
+  <% end %>
+</div>
+
