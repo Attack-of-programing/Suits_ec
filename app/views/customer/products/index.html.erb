@@ -1,0 +1,26 @@
+<%= render 'customer/customer_header' %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <!--ジャンル検索機能の部分テンプレートの-->
+            <%= render 'customer/genres/genre_search', genres: @genres %>
+        </div>
+        <div class="col-xs-9">
+            <% if @genre %>
+                <!--ジャンル検索の場合は[ジャンル名]一覧と表示する-->
+                <h1><strong><%= @genre.name %>一覧</strong>（全<%= @products.total_count %>件）</h1>
+            <% else %>
+                <!--全検索の場合は商品一覧と表示する-->
+                <h1><strong>商品一覧</strong>（全<%= @products.total_count %>件）</h1>
+            <% end %>
+            <div class="index-products-area">
+                <!--8つ商品を表示させる-->
+                <% @products.each do |product| %>
+                    <%= render 'customer/products/product', product: product %>
+                <% end %>
+            </div>
+            <div class="text-center"><%= paginate(@products) %></div>
+        </div>
+    </div>
+</div>
+<%= render 'customer/footer' %>
