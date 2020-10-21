@@ -11,33 +11,33 @@
     <!--商品情報の表示-->
     <div class="col-xs-8">
         <!--商品名-->
-        <div class="field">
+        <div class="row form-group">
   				<strong class="col-sm-3 control-label">商品名</strong>
   				<span class="col-sm-4 control-label"><%= @product.name %></span>
 				</div></br>
         <!--商品説明-->
-        <div class="field">
+        <div class="row form-group">
           <strong class="col-sm-3 control-label">商品説明</strong>
   				<span class="col-sm-4 control-label"><%= @product.explanation %></span></br>
         </div></br>
         <!--ジャンル-->
-        <div class="field">
+        <div class="row form-group">
           <strong class="col-sm-3 control-label">ジャンル</strong>
   				<span class="col-sm-4 control-label"><%= @product.genre.name %></span></br>
         </div></br>
         <!--価格-->
-        <div class="field">
+        <div class="row form-group">
           <strong class="col-sm-3 control-label">税込価格（税別価格）</strong>
   				<span class="col-sm-6 control-label"><%= @product.tax_included.to_s(:delimited) %>（<%= @product.after_tax_price.to_s(:delimited) %>）円</span></br>
         </div></br>
         <!--販売ステータス-->
-        <div class="field">
+        <div class="row form-group">
           <strong class="col-sm-3 control-label">販売ステータス</strong>
   				<span class="col-sm-4 control-label">
     				<% if @product.is_sale == true %>
-  					　販売中
+              販売中
   					<% elsif @product.is_sale == false %>
-  					　売切れ
+              売切れ
   					<% end %>
   				</span></br>
         </div></br>

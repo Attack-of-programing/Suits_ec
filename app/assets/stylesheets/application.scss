@@ -58,3 +58,13 @@ header {
     background-position: center; /* 背景画像の中央表示 */
     background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
 }
+
+// 要素のインライン化
+.inline {
+	display: inline;
+}
+
+// 上下にマージンを追加
+.field {
+    margin: 10px 0px;
+}

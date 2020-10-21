@@ -1,4 +1,7 @@
 class Customer::ProductsController < ApplicationController
+  
+  # 商品情報が必要なメソッドは、先に指定IDの商品を取得していく。
+  before_action :set_product, only: [:show]
     
   def index
     # 有効ジャンルを全て取得
@@ -14,11 +17,24 @@ class Customer::ProductsController < ApplicationController
     end
   end
   
+  def show
+    # 有効ジャンルを全て取得
+    @genres = Genre.where(is_active: true).all
+    # カート用の新規のインスタンス変数を定義
+    @cart_item = CartItem.new
+  end
+  
   private
   # ストロングパラメータ
   def product_params
     params.require(:product).permit(:name, :image, :explanation,
        :genre_id, :after_tax_price, :is_sale)
-  end  
+  end
+  
+  # 指定IDの商品情報の取得
+  def set_product
+    # IDに基づく商品を取得
+    @product = Product.find(params[:id])
+  end
   
 end
