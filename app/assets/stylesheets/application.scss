@@ -49,5 +49,12 @@ header {
 }
 
 #error_explanation {
-  color: red;
+    color: red;
+}
+
+// 商品画像のマージンの設定
+.product-image {
+    margin-bottom: 10px;
+    background-position: center; /* 背景画像の中央表示 */
+    background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
 }

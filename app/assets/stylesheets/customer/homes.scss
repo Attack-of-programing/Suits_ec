@@ -21,17 +21,15 @@
     width: 100%;
     display: flex; /* Flexboxの利用 */
     flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
-    background-color: orange; /* 仮置き背景 後で消す！ */
 }
 
 .recommend-products-area .product-area {
     width: 20%;
-    height: 200px; /* 仮置き高さ 後で消す！ */
     margin-right: 6%;
     margin-bottom: 10px;
-    background-color: pink; /* 仮置き背景 後で消す！ */
 }
 
 .recommend-products-area .product-area:nth-child(4) {
     margin-right: 0px; /* 4つ目の商品のみ右側余白を0pxに */
 }
+
