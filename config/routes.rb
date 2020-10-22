@@ -8,17 +8,32 @@ Rails.application.routes.draw do
   get '/about' => 'customer/homes#about', as: 'about'
 
 
-  # devise関連のコントローラのルーティングを任意のパスに変更
-  # 会員新規登録画面、ログイン画面のルーティング
-  devise_for :customers, controllers: {
-    registrations: 'customers/registrations',
-    sessions: 'customers/sessions'
-  }
+  
+  devise_for :customers,skip: :all
+  devise_scope :customer do
+    #サインアップ
+    get 'customers/sign_up' =>'customers/registrations#new', as: :new_customer_registration
+    post 'cusotmers'=>'customers/registrations#create', as: :customer_registration
+    #ログイン、ログアウト
+    get 'customers/sign_in'=>'customers/sessions#new',as: :new_customer_session
+    post 'customers/sign_in'=>'customers/sessions#create',as: :customer_session
+    delete 'customers/sign_out' =>'customers/sessions#destroy', as: :destroy_customer_session
+  end
+  
   # 管理者ログイン画面のルーティング
   # セッションパス修正admin→admins
-  devise_for :admins, controllers: {
-    sessions: 'admins/sessions'
-  }
+  # devise_for :admins, controllers: {
+  #   sessions: 'admins/sessions'
+  # }
+  
+  devise_for :admins,skip: :all
+  devise_scope :admin do
+    #ログイン、ログアウト
+    get 'admins/sign_in'=>'admins/sessions#new',as: :new_admin_session
+    post 'admins/sign_in'=>'admins/sessions#create',as: :admin_session
+    delete 'admins/sign_out' =>'admins/sessions#destroy', as: :destroy_admin_session
+  end
+  
 
   # 管理者側の各機能のルーティング
   # namespaseでURLとコントローラのパスの頭に「/admin」が入るようにする
