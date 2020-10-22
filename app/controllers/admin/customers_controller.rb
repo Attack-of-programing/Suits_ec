@@ -18,7 +18,6 @@ class Admin::CustomersController < ApplicationController
       redirect_to admin_customer_path(@customer.id)
       flash[:notice] = "会員情報を変更しました"
     else
-      @customers = Customer.all
       render 'edit'
     end
 
