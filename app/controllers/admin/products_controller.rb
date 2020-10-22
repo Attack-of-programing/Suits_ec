@@ -36,7 +36,7 @@ class Admin::ProductsController < ApplicationController
   
   def update
     if @product.update(product_params)
-      flash[:success] = "商品内容をを変更しました"
+      flash[:success] = "商品内容を変更しました"
       redirect_to admin_product_path(@product)
     else
       render :edit
