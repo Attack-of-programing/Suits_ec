@@ -2,8 +2,9 @@
 <div class="container">
  <div class= "row">
  <!--エラーメッセージ表示 -->
+ <% if @shipping%>
  <%= render 'layouts/errors',obj: @shipping %>
-    
+ <% end %>
  <!--投稿サクセスメッセージ表示 --> 
  <notice><%=notice %></notice> 
    <h2 class="t">配送先登録/一覧</h2>
@@ -40,7 +41,6 @@
      <div class="col-xs-9">
       <table class="table-bordered col-xs-9">
       <!--配送先一覧画面 一段目-->
-　<% if customer_signed_in?&&current_customer.id == @customer_id %>
        <thead class="thead bg-primary">
        <tr>
         <th>郵便番号</th>
@@ -65,7 +65,6 @@
         <% end %>
        </tbody>
    </table>
-<% end %>
  </div>
  </div>
 </div>
