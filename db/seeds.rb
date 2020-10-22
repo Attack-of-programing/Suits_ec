@@ -7,12 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # 管理者ログインデータの作成
-Admin.create!(
-  email: "Suits_ec_admin@gmail.com",
-  password: "Suits_ec",
-  password_confirmation: "Suits_ec",
-)
-  
+  Admin.create!(
+    email: "admin@gmail.com",
+    password: "Suits_ec",
+   )
+
 #ジャンルデータの作成
 Genre.create!(
   name: "ショートケーキ",
@@ -40,3 +39,17 @@ Genre.create!(
   )
 end
 
+20.times do |customer|
+  Customer.create!(
+    last_name: "acount",
+    first_name: "1",
+    last_name_kana: "イチ",
+    first_name_kana: "アカウント",
+    postcode: "0000000",
+    address: "豊島区",
+    phone_number: "0399999999",
+    email: "acount-#{SecureRandom.base64(10)}@gmail.com",
+    password: "acount-#{customer + 1}",
+    is_deleted: false
+  )
+end
