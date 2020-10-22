@@ -1,0 +1,87 @@
+<%= render 'admin/admin_header' %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-8">
+      
+　　　<!--エラ〜メッセージ-->
+        <%= render 'layouts/errors', obj: @customer %>
+      
+
+      <%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
+      <!--タイトル-->
+      <h2 class="title"><%= @customer.full_name %>さんの会員情報編集</h2>
+
+      <!--表示フォーム-->
+      <div class="row form-group" >
+        <label class="col-xs-2 control-label" >顧客ID</label>
+        <div class="col-xs-2">
+          <%= @customer.id %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label"> 名前</label>
+        <div class="col-xs-3">
+          <%= f.text_field :last_name, class: "form-control",autofocus: true %>
+        </div>
+        <div class="col-xs-3">
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label"> フリガナ</label>
+        <div class="col-xs-3">
+          <%= f.text_field :last_name_kana, class: "form-control" %>
+        </div>
+        <div class="col-xs-3">
+          <%= f.text_field :first_name_kana, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label">郵便番号</label>
+        <div class="col-xs-3" >
+          <%= f.text_field :postcode, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label"> 住所</label>
+        <div class="col-xs-8" >
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label"> 電話番号</label>
+        <div class="col-xs-3" >
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label"> メールアドレス</label>
+        <div class="col-xs-3" >
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-2 control-label"> 会員ステータス</label>
+        <div class="col-xs-10" >
+          <label class="col-xs-2"><%= f.radio_button :is_deleted, "false", checked: true %>有効</label>
+          <label class="col-xs-2"><%= f.radio_button :is_deleted, "true" %>退会済み</label>
+        </div>
+      </div>
+
+      <!--変更ボタン-->
+      <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+
+
+      <% end %>
+    </div>
+  </div>
+</div>
