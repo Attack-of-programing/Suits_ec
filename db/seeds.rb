@@ -9,7 +9,7 @@
 # 管理者ログインデータの作成
   Admin.create!(
     email: "admin@gmail.com",
-    password: "Suits_ec",
+    password: "suits_ec",
    )
 
 #ジャンルデータの作成
