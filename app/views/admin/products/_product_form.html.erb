@@ -15,7 +15,7 @@
 <div class="row form-group">
 	<%= f.label "ジャンル", class: "col-sm-3 control-label" %>
 	<div class="col-sm-4">
-	  <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --", class: "form-control") %>
+	  <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "-- 選択してください --" }, { class: "form-control" } %>
   </div>
 </div>
 
@@ -30,6 +30,6 @@
 <div class="row form-group">
 	<%= f.label "販売ステータス", class: "col-sm-3 control-label" %>
 	<div class="col-sm-4">
-	  <%= f.select :is_sale, [["販売中",true],["販売停止中",false]], {include_blank: '--選択してください--'}, class: "form-control" %>
+	  <%= f.select :is_sale, [["販売中",true],["売切れ",false]], {include_blank: '--選択してください--'}, {class: "form-control"} %>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<table class="table table-bordered table-borderless table-hover bg-default">
+  <thead><tr><th>ジャンル検索</th></tr></thead>
+  <% genres.each do |genre| %>
+    <!--有効フラグがtrueのジャンルのみを表示-->
+    <% if genre.is_active %>
+      <tr><td>
+        <!--商品一覧画面へ遷移する際にジャンルIDをパラメータとしてコントローラに送付-->
+        <%= link_to products_path(genre_id: genre.id) do %>
+          <%= genre.name %>
+        <% end %>
+      </td></tr>
+    <% end %>
+  <% end %>
+</table>    

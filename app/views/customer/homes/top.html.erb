@@ -2,19 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-3">
-
-            <table class="table table-bordered table-borderless table-hover">
-                <thead><tr><th>ジャンル検索</th></tr></thead>
-                <!-- ここから@jenresでeach文で書く -->
-                <!--もしジャンルの有効フラグがtrueであれば表示-->
-                <!--link_toを使って選んだジャンルの商品一覧画面へ遷移-->
-
-                <!--一旦サンプルジャンルを仮置き-->
-                <tr><td>ジャンル1</td></tr>
-                <tr><td>ジャンル2</td></tr>
-                <tr><td>ジャンル3</td></tr>
-                <!-- ここまで@jenresでeach文で書く -->
-            </table>
+            <!--ジャンル検索機能の部分テンプレートの-->
+            <%= render 'customer/genres/genre_search', genres: @genres %>
         </div>
         <div class="col-xs-9">
             <!--御礼メッセージ表示 -->
@@ -31,13 +20,10 @@
             </div>
             <h1><strong>オススメ商品</strong></h1>
             <div class="recommend-products-area">
-                <!-- ここから@productsでeach文で書く -->
-                <!--一旦サンプル商品を仮置き　後日部分テンプレートに置き換え-->
-                <div class="product-area"></div>
-                <div class="product-area"></div>
-                <div class="product-area"></div>
-                <div class="product-area"></div>
-                <!-- ここまで@productsでeach文で書く -->
+                <!--ランダムで4つ商品を表示させる-->
+                <% @products.each do |product| %>
+                    <%= render 'customer/products/product', product: product %>
+                <% end %>
             </div>
             <%= link_to "もっと見る>", products_path , class: "pull-right" %>
         </div>
