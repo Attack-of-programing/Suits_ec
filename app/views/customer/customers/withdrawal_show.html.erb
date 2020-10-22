@@ -1,0 +1,28 @@
+<%= render 'customer/customer_header' %>
+
+<div class="container">
+
+  <div class="row">
+
+
+    <div class="col-xs-12" style="margin-top: 80px;">
+      <p class="text-center" style="font-size: 30px"><starong>本当に退会しますか？</storong></p>
+    </div>
+
+    <div class=col-xs-12 style="margin-top: 20px;">
+    <p class="text-center" style="font-size: 18px">退会すると、会員情報や</br>
+    これまでの購入履歴が閲覧できなくなります。</br>
+    退会する場合は「退会する」をクリックください。</br>
+    </div>
+
+    <div class="col-xs-12" style="margin-top: 20px">
+      <p class="text-center">
+      <%= link_to "退会しない",customers_path(current_customer),class: "btn btn-primary" %>
+      <%= link_to "退会する",withdrawal_customers_path(current_customer),method: :patch,"data-confirm"=>"本当に退会しますか？", class: "btn btn-danger",style: "margin:0 20px;" %>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<%= render 'customer/footer' %>

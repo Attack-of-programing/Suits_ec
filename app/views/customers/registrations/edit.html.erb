@@ -1,43 +1,78 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render "customer/customer_header"%>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "customers/shared/error_messages", resource: resource %>
+<div class="container">
+  <div class="row">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%= form_with model: @customer, url: customer_registration_path(current_customer), local: true do |f| %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+
+    <div class="col-xs-10">
+        <h2 class="title">登録情報編集</h2>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> 名前</label>
+        <div class="col-xs-4">
+          （姓）<%= f.text_field :last_name, class: "form-control",autofocus: true, autocomplete: "last_name", placeholder: "姓" %>
+        </div>
+        <div class="col-xs-4">
+          （名）<%= f.text_field :first_name, class: "form-control",autofocus: true, autocomplete: "first_name", placeholder: "名" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> フリガナ</label>
+        <div class="col-xs-4">
+          （セイ）<%= f.text_field :last_name_kana, class: "form-control",autofocus: true, autocomplete: "姓", placeholder: "セイ" %>
+        </div>
+        <div class="col-xs-4">
+          （メイ）<%= f.text_field :first_name_kana, class: "form-control",autofocus: true, autocomplete: "name", placeholder: "メイ" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> メールアドレス</label>
+        <div class="col-xs-4" >
+          <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> 郵便番号（ハイフンなし）</label>
+        <div class="col-xs-4" >
+          <%= f.text_field :postcode, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "郵便番号" %>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> 住所</label>
+        <div class="col-xs-8" >
+          <%= f.text_field :address, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "住所" %>
+        </div>
+      </div>
+
+     <div class="row form-group">
+        <label class="col-xs-3 control-label"> 電話番号（ハイフンなし）</label>
+        <div class="col-xs-4" >
+          <%= f.text_field :phone_number, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "電話番号" %>
+        </div>
+      </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+  <form class="form-inline">
+    <div style="form-gruoup">
+      <div class="col-xs-offset-3" style="margin-top :20x;">
+           <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+           <%= link_to "退会する",withdrawal_customers_path(customer.id),class: "btn btn-danger col-xs-offset-7",style: "font-size:12px;" %>
+     </div>
+    </div>
+  </form>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+<%= render "customer/footer"%>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+
+

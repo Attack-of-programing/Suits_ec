@@ -63,6 +63,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+
   protected
 
   def configure_permitted_parameters

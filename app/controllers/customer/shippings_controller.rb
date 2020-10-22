@@ -4,7 +4,7 @@ class Customer::ShippingsController < ApplicationController
   def index
     @shippings = Shipping.all
     @shipping = Shipping.new
-
+    @shippings =current_customer.shippings
   end
 
   def create
