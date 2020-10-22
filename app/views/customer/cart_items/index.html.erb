@@ -54,7 +54,7 @@
           <tr>
             <th class="bg-primary col-xs-5">合計金額</th>
             <td class="col-xs-7" id='total_price'>
-              ¥<%= @total_price %>
+              <%= @total_price.to_s(:delimited) %>
             </td>
           </tr>
         </thead>
