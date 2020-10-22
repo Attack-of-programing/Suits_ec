@@ -24,7 +24,7 @@ class Customer::CustomersController < ApplicationController
       @customer.update(is_deleted: true)
       # ログイン、ユーザーを弾く
       reset_session
-　　　#登録情報の消去メソッド
+      #登録情報の消去メソッド
       redirect_to root_path,notice: "ありがとうございました。またのご利用を心よりお待ちしております。"
     end
 

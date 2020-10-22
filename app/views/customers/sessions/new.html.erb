@@ -10,17 +10,17 @@
 
       <h2 class="title">会員の方はこちらからログイン</h2>
 
-      <div class="row form-group" >
+      <div class="row form-group d-flex align-items-center" >
         <label class="col-xs-3 control-label" >メールアドレス</label>
         <div class="col-xs-9">
-          <%= f.email_field :email, class: "form-control", style: "margin-top: 20px;", autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
         </div>
       </div>
 
       <div class="row form-group" >
         <label class="col-xs-3 control-label" >パスワード</label>
         <div class="col-xs-9">
-          <%= f.password_field :password, class: "form-control", style: "margin-top: 20px;", autocomplete: "current-password" %>
+          <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
         </div>
       </div>
 

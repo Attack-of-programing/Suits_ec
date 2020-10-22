@@ -1,17 +1,13 @@
 <%= render 'admin/admin_header' %>
 
 <div class="container">
+  <!--サクセスメッセージ-->
+  <%= flash[:notice] %>
+
   <div class="row">
-
     <div class="col-xs-6">
-
-      <!--サクセスメッセージ-->
-      <%= flash[:notice] %>
-
       <!--タイトル-->
       <h2 class="title"><%= @customer.full_name %>さんの会員詳細</h2>
-
-
 　　　<!--表示フォーム-->
       <div class="row form-group" >
         <label class="col-xs-3 control-label" >顧客ID</label>
