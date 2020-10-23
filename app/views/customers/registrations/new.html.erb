@@ -22,7 +22,17 @@
         </div>
       </div>
 
-      
+      <div class="row form-group">
+        <label class="col-xs-3 control-label"> フリガナ</label>
+        <div class="col-xs-4">
+          （セイ）<%= f.text_field :last_name_kana, class: "form-control",autofocus: true, autocomplete: "last_name_kana", placeholder: "セイ" %>
+        </div>
+        <div class="col-xs-4">
+          （メイ）<%= f.text_field :first_name_kana, class: "form-control",autofocus: true, autocomplete: "first_name_kana", placeholder: "メイ" %>
+        </div>
+      </div>
+
+
 
       <div class="row form-group">
         <label class="col-xs-3 control-label"> メールアドレス</label>

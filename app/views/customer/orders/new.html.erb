@@ -1,0 +1,27 @@
+<%= render 'customer/customer_header' %>
+
+<div class="container">
+  <div class="row">
+
+  <!--タイトル-->
+  <h2 class="title">注文情報入力</h2>
+
+
+  <%= form_with model: @order, url: {action: 'confirm'}, local: true do |f| %>
+
+  <h3>支払方法</h3>
+  <%= f.radio_button :pay_method, "0", checked: true %>
+  <%= f.label :pay_method, "クレジットカード" %></br>
+  <%= f.radio_button :pay_method, "1" %>
+  <%= f.label :pay_method, "銀行振込" %></br>
+
+  <h3>お届け先</h3>
+  <=% f.
+
+
+
+
+  <% end %>
+
+</div>
+</div>
