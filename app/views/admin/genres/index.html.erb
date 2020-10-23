@@ -21,7 +21,9 @@
           </div>
           <label class="col-xs-2"><%= f.radio_button :is_active, "true", checked: true %>有効</label>
           <label class="col-xs-2"><%= f.radio_button :is_active, "false" %>無効</label>
-          <label class="col-xs-1"><%= f.submit "追加", class: "btn btn-primary" %></label>
+          <div class="col-xs-1">
+            <%= f.submit "追加", class: "btn btn-primary " %>
+          </div>
         </div>
         <% end %>
 
@@ -40,9 +42,9 @@
               <td><%= genre.name %></td>
               <td>
               <% if genre.is_active? %>
-                <p>有効</p>
+                有効
               <% else %>
-                <p>無効</p>
+                無効
               <% end %>
               </td>
               <td class="text-center"><%= link_to "編集する", edit_admin_genre_path(genre.id),class: "btn btn-primary " %></td>

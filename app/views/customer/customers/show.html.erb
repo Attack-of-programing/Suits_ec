@@ -1,64 +1,66 @@
 <%= render "customer/customer_header"%>
 <div class="container">
   <div class="row">
-
+    <notice><%=notice %></notice> 
     <div class="col-xs-12" style="margin-top: 30px;">
-     　<!--投稿サクセスメッセージ表示 --> 
- 　 　<notice><%=notice %></notice> 
-     <h2 class= "title" >マイページ</h2>
+      <!--投稿サクセスメッセージ表示 --> 
+      <h2 class= "title" >マイページ</h2>
     </div>
-
-  <form class="form-inline">
-    <div style="form-gruoup">
-      <div class="col-xs-12" style="margin-top: 20x ;font-size:20px;">
-           <strong>登録情報</strong>
-           <%= link_to "編集する",edit_customers_path(current_customer),class: "btn btn-primary" %>
-           <btn class="btn btn-primary">パスワードを変更する</btn>
-      </div>
-    </div>
-  </form>
-
-  <table class= "table-bordered col-xs-8" style="margin-top:20px;">
-    <tr>
-      <th>氏名<th><td><%= @customer.last_name%><%=@customer.first_name %></td>
-    </tr>
-    <tr>
-      <th>カナ<th><td><%= @customer.last_name_kana%><%=@customer.first_name_kana %></td>
-    </tr>
-    <tr>
-      <th>郵便番号<th><td><%= @customer.postcode %></td>
-    </tr>
-    <tr>
-      <th>住所<th><td><%= @customer.address %></td>
-    </tr>
-    <tr>
-      <th>電話番号<th><td><%= @customer.phone_number %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス<th><td><%= @customer.email %></td>
-    </tr>
-  </table>
-
- <form class="form-inline">
-    <div class="form-gruoup">
-      <div class="col-xs-12" style="margin-top:20px;">
-           <label class="col-xs-2 control-label" style="font-size:20px;">配送先一覧</label>
-      <div class="col-xs-4">
-           <%= link_to "一覧を見る",shippings_path,class: "btn btn-primary"%>
-      </div>
-    </div>
-  </form>
 
     <form class="form-inline">
-    <div class="form-gruoup">
-      <div class="col-xs-12" style="margin-top :20px;">
-           <label class="col-xs-2 control-label" style="font-size:20px;">注文履歴一覧</label>
-      <div class="col-xs-4">
-           <%= link_to "一覧を見る",orders_path,class: "btn btn-primary"%>
+      <div style="form-gruoup">
+        <div class="col-xs-12" style="margin-top: 20x ;font-size:20px;">
+          <strong>登録情報</strong>
+          <%= link_to "編集する",edit_customers_path(current_customer),class: "btn btn-primary" %>
+          <btn class="btn btn-primary">パスワードを変更する</btn>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
 
+    <div class="col-xs-6">
+      <table class= "table table-bordered col-xs-1" style="margin-top:20px;">
+        <tr>
+          <th class="bg-primary col-xs-4">氏名</th><td><%= @customer.last_name%><%=@customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="bg-primary col-xs-4">カナ</th><td><%= @customer.last_name_kana%><%=@customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th class="bg-primary col-xs-4">郵便番号</th><td><%= @customer.postcode %></td>
+        </tr>
+        <tr>
+          <th class="bg-primary col-xs-4">住所</th><td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th class="bg-primary col-xs-4">電話番号</th><td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <th class="bg-primary col-xs-4">メールアドレス</th><td><%= @customer.email %></td>
+        </tr>
+      </table>
+    </div>
+
+    <form class="form-inline">
+      <div class="form-gruoup">
+        <div class="col-xs-12" style="margin-top:20px;">
+          <label class="col-xs-2 control-label" style="font-size:20px;">配送先一覧</label>
+          <div class="col-xs-4">
+            <%= link_to "一覧を見る",shippings_path,class: "btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form class="form-inline field">
+      <div class="form-gruoup">
+        <div class="col-xs-12 field" style="margin-top :20px;">
+          <label class="col-xs-2 control-label" style="font-size:20px;">注文履歴一覧</label>
+          <div class="col-xs-4">
+            <%= link_to "一覧を見る",orders_path,class: "btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 <%= render "customer/footer"%>
