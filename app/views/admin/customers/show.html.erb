@@ -2,7 +2,9 @@
 
 <div class="container">
   <!--サクセスメッセージ-->
-  <%= flash[:notice] %>
+  <% if flash[:notice] %>
+    <p class="alert alert-success"><%= flash[:notice] %></p>
+  <% end %>
 
   <div class="row">
     <div class="col-xs-6">
@@ -70,7 +72,7 @@
           <%=link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary form-control" %>
         </div>
         <div class="col-xs-4 control-label">
-          <%=link_to "注文履歴一覧を見る", admin_order_path(@customer.id), class: "btn btn-primary form-control" %>
+          <%=link_to "注文履歴一覧を見る", admin_orders_path(customer_id: @customer.id) , class: "btn btn-primary form-control" %>
         </div>
       </div>
     </div>
