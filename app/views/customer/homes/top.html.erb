@@ -1,7 +1,9 @@
 <%= render 'customer/customer_header' %>
 <div class="container">
-    <!--御礼メッセージ表示 -->
-    <notice><%=notice %></notice>
+    <!--サクセスメッセージ-->
+    <% if flash[:notice] %>
+        <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
     <div class="row">
         <div class="col-xs-3">
             <!--ジャンル検索機能の部分テンプレートの-->
