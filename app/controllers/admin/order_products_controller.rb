@@ -1,5 +1,8 @@
 class Admin::OrderProductsController < ApplicationController
     
+    # ログイン中の管理者のみアクセス許可
+    before_action :authenticate_admin!
+    
     def update
         # 指定の注文商品を取得
         @order_product = OrderProduct.find(params[:id])

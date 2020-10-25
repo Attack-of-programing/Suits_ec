@@ -1,5 +1,7 @@
 class Customer::ShippingsController < ApplicationController
-
+  
+  # ログイン中のユーザのみアクセス許可
+  before_action :authenticate_customer!
 
   def index
     @shippings = Shipping.all
