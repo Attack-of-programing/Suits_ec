@@ -1,8 +1,11 @@
 <%= render 'admin/admin_header' %>
 <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
-
 <!--細かいデザインは後からから決める -->
 <div class ="container">
+    <!-- エラーメッセージ表示-->
+    <%- flash.each do |name, msg| -%>
+        <p class="alert alert-danger"><%= msg %></p>
+    <%- end -%>
   <div class="row">
 
   <div class="col-xs-8 col-xs-offset-2" style="margin-top: 100px;">
