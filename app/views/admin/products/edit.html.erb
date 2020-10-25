@@ -1,10 +1,10 @@
 <%= render 'admin/admin_header' %>
 <div class="container">
+  <!-- エラーメッセージ表示-->
+  <%= render "layouts/errors", obj: @product %>
   <h2 class="title">商品編集</h2>
   <div class="row">
-    <!-- エラーメッセージ表示-->
-    <%= render "layouts/errors", obj: @product %>
-    
+
     <!-- 商品の編集フォーム -->
     <%= form_with model: @product, url: admin_product_path, method: :patch, local: true do |f| %>
 

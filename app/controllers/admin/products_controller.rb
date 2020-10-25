@@ -26,7 +26,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
     # 新規商品情報の保存
     if @product.save
-      flash[:notice] = "新商品を登録しました"
+      flash[:notice] = "新商品を登録しました。"
       redirect_to admin_product_path(@product)
     else
       # エラーが発生した場合
@@ -36,7 +36,7 @@ class Admin::ProductsController < ApplicationController
   
   def update
     if @product.update(product_params)
-      flash[:success] = "商品内容を変更しました"
+      flash[:notice] = "商品内容を変更しました。"
       redirect_to admin_product_path(@product)
     else
       render :edit

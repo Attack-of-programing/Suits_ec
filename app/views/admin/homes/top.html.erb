@@ -4,7 +4,10 @@
         <h2 class="title">管理者画面</h2>  
         <div class="number-of-orders">
             本日の注文件数
-            <!-- admin_orders_path.count -->
+            
+            <%= link_to admin_orders_path(only_today_flag: true), class: "col-xs-offset-2 link" do %> 
+				<%= @orders.count %>件
+			<% end %>
         </div>
    </div>
 </div>

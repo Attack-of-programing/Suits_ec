@@ -1,17 +1,21 @@
 <%= render 'customer/customer_header' %>
 <div class="container">
+  <!--サクセスメッセージ-->
+  <% if flash[:notice] %>
+    <p class="alert alert-success"><%= flash[:notice] %></p>
+  <% end %>
+  <!-- エラーメッセージ表示-->
+  <% if @cart_item %>
+    <%= render "layouts/errors", obj: @cart_item %>
+  <% end %>
   <div class="row">
-    <!-- エラーメッセージ表示-->
-    <% if @cart_item %>
-      <%= render "layouts/errors", obj: @cart_item %>
-    <% end %>
     <h2 class="title text-center inline col-xs-4">ショッピングカート</h2>
     <!--カートを全て空にするボタン-->
     <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-danger col-xs-offset-4 col-xs-2 all-destroy" %>
   </div> 
   <div class="row">
 	  <!--カート内商品一覧-->
-		<div class="col-xs-10 col-xs-offset-1">
+		<div class="col-xs-10 col-xs-offset-1 ">
 	    <table class="table table-bordered">
 	    	<!--カート内商品一覧 テーブルヘッダー-->
 	    	<thead class="thead bg-primary">
@@ -43,7 +47,7 @@
 		       	<tr>
 	        <% end %>
 	      </tbody>
-	   </table>
+	    </table>
     </div>
   </div>
   <div class="row">
@@ -54,7 +58,9 @@
           <tr>
             <th class="bg-primary col-xs-5">合計金額</th>
             <td class="col-xs-7" id='total_price'>
-              <%= @total_price.to_s(:delimited) %>
+              <% if @total_price %>
+                <%= @total_price.to_s(:delimited) %>
+              <% end %>
             </td>
           </tr>
         </thead>
