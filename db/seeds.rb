@@ -52,4 +52,64 @@ end
     password: "acount-#{customer + 1}",
     is_deleted: false
   )
-end
+  end
+
+  5.times do |customer|
+  Order.create!(
+    created_at:"2020/10/22",
+    customer_id: 1,
+    total_price:4800,
+    name: "田中さん",
+    postcode: "0000000",
+    address: "豊島区",
+    pay_method: 0,
+    order_status:0,
+    postage: 800,
+  )
+  end
+
+
+  OrderProduct.create!(
+    order_id:1,
+    product_id:1,
+    number:2,
+    tax_price:1000
+  )
+
+   OrderProduct.create!(
+    order_id:1,
+    product_id:1,
+    number:2,
+    tax_price:1000
+  )
+    OrderProduct.create!(
+    order_id:2,
+    product_id:2,
+    number:2,
+    tax_price:1000
+  )
+    OrderProduct.create!(
+    order_id:3,
+    product_id:3,
+    number:2,
+    tax_price:1000
+  )
+  
+    OrderProduct.create!(
+    order_id:4,
+    product_id:4,
+    number:3,
+    tax_price:1000
+  )
+    OrderProduct.create!(
+    order_id:5,
+    product_id:5,
+    number:3,
+    tax_price:1000
+  )
+    OrderProduct.create!(
+    order_id:5,
+    product_id:5,
+    number:3,
+    tax_price:1000
+  )
