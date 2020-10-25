@@ -1,9 +1,15 @@
 class OrderProduct < ApplicationRecord
-  belongs_to:order
-  belongs_to:product
-
-def subtotal_price
-   tax_price * number
-end
-
+    
+    # 多重度の設定
+    belongs_to :order
+	  belongs_to :product
+	
+	  # 列挙型変数の定義
+	  enum production_status: {"着手不可": 0,"製作待ち": 1,"製作中": 2,"製作完了": 3}
+  
+    # 小計を算出するメソッド
+    def subtotal_price
+      tax_price * number
+    end
+    
 end
