@@ -1,5 +1,9 @@
 class Customer::CartItemsController < ApplicationController
     
+    # ログインユーザのみアクセス許可
+    before_action :authenticate_customer!
+    
+    
     def index
         @cart_items = current_customer.cart_items
         @total_price = 0

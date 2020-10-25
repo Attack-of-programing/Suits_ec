@@ -1,5 +1,8 @@
 class Admin::OrdersController < ApplicationController
     
+    # ログイン中の管理者のみアクセス許可
+    before_action :authenticate_admin!
+    
     def index
         if params[:only_today_flag]
             now = Time.current
