@@ -7,7 +7,9 @@
       <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
 
       <!--エラーメッセージ-->
-      <%= render 'layouts/errors', obj: @order %>
+      <div class= "alert alera-danger">
+        <%= render 'layouts/errors', obj: @order %>
+      </div>
 
       <h2 class="title">注文情報入力</h2>
 

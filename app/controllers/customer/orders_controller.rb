@@ -41,17 +41,22 @@ class Customer::OrdersController < ApplicationController
     @customer = current_customer
     @order.customer_id = @customer.id
 
-    item = []
-      # アイテムを取り出す
-			@items = @customer.cart_items
-			 # アイテムを一個ずつ取り出して注文商品カラムに当て嵌め
-				@items.each do |i|
-					item << @order.order_products.build(product_id: i.product_id, number: i.number, tax_price: i.product.tax_included, production_status: 0)
-				end
-		  #モデルにインポート
-			OrderProduct.import item
 
     if @order.save
+        # アイテムを取り出す
+			@items = @customer.cart_items
+			 @items.each do |cart_item|
+			   p cart_item
+    OrderProduct.create(
+      product_id: cart_item.product_id,
+      order_id: @order.id,
+      number: cart_item.number,
+      production_status: "着手不可",
+      tax_price: cart_item.product.tax_included
+    )
+    end
+
+      
       redirect_to thanks_orders_path
     else
       render 'confirm'
