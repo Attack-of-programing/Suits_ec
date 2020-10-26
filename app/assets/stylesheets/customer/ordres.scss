@@ -2,3 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 商品画像のマージンの設定
+.order-image {
+    margin: 0px 20px;
+    background-position: center; /* 背景画像の中央表示 */
+    background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
+}
