@@ -1,5 +1,5 @@
 class OrderProduct < ApplicationRecord
-    
+
     # 多重度の設定
     belongs_to :order
 	  belongs_to :product
