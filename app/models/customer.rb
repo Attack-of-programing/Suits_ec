@@ -11,12 +11,12 @@ class Customer < ApplicationRecord
   
   
   # バリデーションチェック
-  
+
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
-  validates :postcode, presence: true
+  validates :postcode, presence: true, length: { is: 7 }, format: { with: /\A[0-9]+\z/ }
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
