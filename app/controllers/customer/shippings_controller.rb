@@ -1,5 +1,7 @@
 class Customer::ShippingsController < ApplicationController
-
+  
+  # ログイン中のユーザのみアクセス許可
+  before_action :authenticate_customer!
 
   def index
     @shippings = Shipping.all
@@ -10,7 +12,7 @@ class Customer::ShippingsController < ApplicationController
   def create
     @shipping = Shipping.new(shipping_params)
     if @shipping.save
-      redirect_to shippings_path, notice: "You have created shipping data successfully."
+      redirect_to shippings_path, notice: "配送先情報を登録しました。"
     else
       @shippings = Shipping.all
       render "index"
@@ -20,7 +22,7 @@ class Customer::ShippingsController < ApplicationController
   def destroy
      @shipping =Shipping.find(params[:id])
      @shipping.destroy
-     redirect_to shippings_path
+     redirect_to shippings_path, notice: "配送先情報を削除しました。"
   end
 
   def edit
@@ -30,7 +32,7 @@ class Customer::ShippingsController < ApplicationController
   def update
     @shipping =Shipping.find(params[:id])
     if @shipping.update(shipping_params)
-      redirect_to shippings_path,notice: "You have updated shipping data successfully."
+      redirect_to shippings_path,notice: "配送先情報を更新しました。"
     else
       render "edit"
     end

@@ -28,12 +28,35 @@ header {
     margin: 20px;
 }
 
+.nav > li > p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 20px;
+}
+
 .navbar-default .navbar-nav > li > a {
     color: #000;
 }
 
 .navbar-left {
     margin: 20px;
+}
+
+// サーチバーを表示するために余白を変更
+.admin-login-header-link {
+    margin: 10px 20px !important;
+}
+
+// サーチバーの余白、アイコンの設定
+.search-bar {
+    margin: 0px !important;
+    display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .admin-container{
@@ -67,4 +90,14 @@ header {
 // 上下にマージンを追加
 .field {
     margin: 10px 0px;
+}
+
+// 要素の上にマージンを追加
+.top-space {
+    margin-top: 30px;
+}
+
+// リンクの下線を表示
+.link {
+    text-decoration: underline;
 }

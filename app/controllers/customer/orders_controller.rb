@@ -1,5 +1,17 @@
 class Customer::OrdersController < ApplicationController
 
+  # ログイン中のユーザのみアクセス許可
+  before_action :authenticate_customer!
+    
+  def index       
+      @orders = current_customer.orders
+  end
+
+  def show
+      @order = Order.find(params[:id])
+  end
+
+  
   def new
     # 表示用
     @customer = current_customer
@@ -43,17 +55,16 @@ class Customer::OrdersController < ApplicationController
 
 
     if @order.save
-        # アイテムを取り出す
+      # アイテムを取り出す
 			@items = @customer.cart_items
-			 @items.each do |cart_item|
-			   p cart_item
-    OrderProduct.create(
-      product_id: cart_item.product_id,
-      order_id: @order.id,
-      number: cart_item.number,
-      production_status: "着手不可",
-      tax_price: cart_item.product.tax_included
-    )
+      @items.each do |cart_item|
+      OrderProduct.create(
+        product_id: cart_item.product_id,
+        order_id: @order.id,
+        number: cart_item.number,
+        production_status: "着手不可",
+        tax_price: cart_item.product.tax_included
+      )
     end
 
       
@@ -75,5 +86,6 @@ class Customer::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:total_price, :name, :postcode, :address, :pay_method, :shipping_id )
   end
+
 
 end

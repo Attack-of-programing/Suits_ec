@@ -1,5 +1,8 @@
 class Admin::ProductsController < ApplicationController
   
+  # ログイン中の管理者のみアクセス許可
+  before_action :authenticate_admin!
+  
   # 商品情報が必要なメソッドは、先に指定IDの商品を取得していく。
   before_action :set_product, only: [:show, :edit, :update]
   # ジャンルの取得が必要なメソッドでは、先にジャンルを取得しておく
@@ -26,7 +29,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
     # 新規商品情報の保存
     if @product.save
-      flash[:notice] = "新商品を登録しました"
+      flash[:notice] = "新商品を登録しました。"
       redirect_to admin_product_path(@product)
     else
       # エラーが発生した場合
@@ -36,7 +39,7 @@ class Admin::ProductsController < ApplicationController
   
   def update
     if @product.update(product_params)
-      flash[:success] = "商品内容を変更しました"
+      flash[:notice] = "商品内容を変更しました。"
       redirect_to admin_product_path(@product)
     else
       render :edit

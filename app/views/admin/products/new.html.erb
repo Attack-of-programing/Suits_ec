@@ -1,10 +1,10 @@
 <%= render 'admin/admin_header' %>
 <div class="container">
+  <!-- エラーメッセージ表示-->
+  <%= render "layouts/errors", obj: @product %>
   <h2 class="title">商品新規登録</h2>
   <div class="row">
-    <!-- エラーメッセージ表示-->
-    <%= render "layouts/errors", obj: @product %>
-    
+
     <!-- 商品の新規登録フォーム -->
     <%= form_with model: @product, url: admin_products_path, method: :post, local: true do |f| %>
 

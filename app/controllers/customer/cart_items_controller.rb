@@ -1,5 +1,9 @@
 class Customer::CartItemsController < ApplicationController
     
+    # ログインユーザのみアクセス許可
+    before_action :authenticate_customer!
+    
+    
     def index
         @cart_items = current_customer.cart_items
         @total_price = 0
@@ -25,7 +29,7 @@ class Customer::CartItemsController < ApplicationController
         # IDに基づく商品を取得
         @cart_item = CartItem.find(params[:id])
         if @cart_item.update(cart_item_params)
-            flash[:success] = "数量を変更しました"
+            flash[:notice] = "数量を変更しました。"
             redirect_to cart_items_path
         else
             @cart_items = current_customer.cart_items
@@ -36,13 +40,15 @@ class Customer::CartItemsController < ApplicationController
     def destroy
         @cart_item = CartItem.find(params[:id])
         @cart_item.destroy
-        redirect_to request.referer
+        flash[:notice] = "商品をカートから削除しました。"
+        redirect_to cart_items_path
     end
     
     def destroy_all
         @cart_items = current_customer.cart_items
         @cart_items.destroy_all
-        redirect_to request.referer
+        flash[:notice] = "カート内の商品を全て削除しました。"
+        redirect_to cart_items_path
     end
     
     private

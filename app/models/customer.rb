@@ -7,6 +7,8 @@ class Customer < ApplicationRecord
   # 多重度の設定
   has_many :shippings,dependent: :destroy
   has_many :cart_items,dependent: :destroy
+  has_many :orders,dependent: :destroy
+  
   
   # バリデーションチェック
   
