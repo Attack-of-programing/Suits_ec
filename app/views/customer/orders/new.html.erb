@@ -13,8 +13,8 @@
 
       <!--支払方法-->
       <div class="row form-group">
-        <label class="strong", style="font-size: 25px;" >支払方法</label></br>
-        <div class="box", style="font-size: 20px; padding-left: 30px;">
+        <label class="strong", style="font-size: 20px;" >支払方法</label></br>
+        <div class="box", style="font-size: 18px; padding-left: 30px;">
           <%= f.radio_button :pay_method, "クレジットカード", checked: true, style: "width:20px; height: 20px;" %>&nbsp;クレジットカード</br>
           <%= f.radio_button :pay_method, "銀行振込", style: "width:20px; height: 20px;" %>&nbsp;銀行振込
         </div>
@@ -22,9 +22,9 @@
 
       <!--お届け先-->
       <div class="row form-group">
-        <label class="strong", style="font-size: 25px; ">お届け先</label></br>
+        <label class="strong", style="font-size: 20px; ">お届け先</label></br>
         <!--①会員登録の住所を選択-->
-        <div class="box", style="font-size: 20px; padding-left: 30px;">
+        <div class="box", style="font-size: 18px; padding-left: 30px;">
           <%= f.radio_button :shipping_address, "0", checked: true, style: "width:20px; height: 20px;" %>&nbsp;現在のご住所
           <div class="address",  style="padding-left: 30px;">
             <%= @customer.postcode %> <%= @customer.address %></br>
@@ -37,7 +37,7 @@
 
       <div class="row form-group">
         <!--配送先が0じゃなかったら？-->
-        <div class="box", style="font-size: 20px; padding-left: 30px;">
+        <div class="box", style="font-size: 18px; padding-left: 30px;">
           <% if @shippings.count != 0 %>
           <%= f.radio_button :shipping_address, "1", style: "width:20px; height: 20px;" %>&nbsp;登録済み住所から選択</br>
           <div class="col-xs-10", style="padding-left: 30px;">
@@ -55,7 +55,7 @@
 
       <!--③今回限りの配送先を入力-->
       <div class="row form-group">
-        <div class="box", style="font-size: 20px; padding-left: 30px;">
+        <div class="box", style="font-size: 18px; padding-left: 30px;">
           <%= f.radio_button :shipping_address, "2", style: "width:20px; height: 20px;" %>&nbsp;新しいお届け先
         </div>
         <div class="row field", style="padding-left: 50px;">
