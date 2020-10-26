@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :products, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :order_products, only: [:update]
+    get '/search' => 'searchs#search', as: 'search'
   end
 
   # 会員側のルーティング
