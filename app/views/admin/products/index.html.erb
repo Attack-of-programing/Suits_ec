@@ -31,7 +31,7 @@
 		        <tr>
 			        <td><%= product.id%></td>
 			        <td><%= link_to product.name, admin_product_path(product), class: "link" %></td>
-			        <td><%= product.after_tax_price %></td>
+			        <td><%= (product.after_tax_price).to_s(:delimited) %></td>
 			        <td><%= product.genre.name %></td>
 			        <td>
 			        	<% if product.is_sale == true %>
