@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   
   # 多重度の設定
-  belongs_to :genre
+  belongs_to :genre, optional: true  
   has_many :cart_items
   has_many :order_products
   

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_scope :customer do
     #サインアップ
     get 'customers/sign_up' =>'customers/registrations#new', as: :new_customer_registration
-    post 'cusotmers'=>'customers/registrations#create', as: :customer_registration
+    post 'customers'=>'customers/registrations#create', as: :customer_registration
     #ログイン、ログアウト
     get 'customers/sign_in'=>'customers/sessions#new',as: :new_customer_session
     post 'customers/sign_in'=>'customers/sessions#create',as: :customer_session
