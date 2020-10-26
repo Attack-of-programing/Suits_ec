@@ -2,16 +2,7 @@ class Customer::OrdersController < ApplicationController
 
   # ログイン中のユーザのみアクセス許可
   before_action :authenticate_customer!
-    
-  def index       
-      @orders = current_customer.orders
-  end
 
-  def show
-      @order = Order.find(params[:id])
-  end
-
-  
   def new
     # 表示用
     @customer = current_customer
@@ -28,6 +19,8 @@ class Customer::OrdersController < ApplicationController
     @customer = current_customer
     # カートの中身をインスタンス変数に入れる
     @items = @customer.cart_items
+    # 自分のIDの配送先を全部とってくる
+    @shippings = Shipping.where(customer_id: @customer.id)
     # 商品合計の計算
     @total_price = 0
     @items.each do |cart_item|
@@ -46,13 +39,16 @@ class Customer::OrdersController < ApplicationController
       @order.name = @shipping.name
     end
 
+    if @order.invalid?
+      render 'new'
+    end
+
   end
 
   def create
     @order = Order.new(order_params)
     @customer = current_customer
     @order.customer_id = @customer.id
-
 
     if @order.save
       # アイテムを取り出す
@@ -67,7 +63,6 @@ class Customer::OrdersController < ApplicationController
       )
     end
 
-      
       redirect_to thanks_orders_path
     else
       render 'confirm'
@@ -78,6 +73,15 @@ class Customer::OrdersController < ApplicationController
     @customer = current_customer
     @items = @customer.cart_items
     @items.destroy_all
+  end
+
+
+  def index
+      @orders = current_customer.orders
+  end
+
+  def show
+      @order = Order.find(params[:id])
   end
 
 
