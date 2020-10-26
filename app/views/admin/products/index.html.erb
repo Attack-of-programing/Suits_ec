@@ -1,5 +1,9 @@
 <%= render 'admin/admin_header' %>
 <div class="container">
+	<!--検索結果がない場合のメッセージ-->
+  <% if flash[:alert] %>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
   <h2 class="title">商品一覧</h2>
   <div class="row">
 	  <!--商品一覧 -->
@@ -27,7 +31,7 @@
 		        <tr>
 			        <td><%= product.id%></td>
 			        <td><%= link_to product.name, admin_product_path(product), class: "link" %></td>
-			        <td><%= product.after_tax_price %></td>
+			        <td><%= (product.after_tax_price).to_s(:delimited) %></td>
 			        <td><%= product.genre.name %></td>
 			        <td>
 			        	<% if product.is_sale == true %>

@@ -50,13 +50,18 @@ header {
 // サーチバーの余白、アイコンの設定
 .search-bar {
     margin: 0px !important;
-    display: inline-block;
+    width: 70% !important;
+    display: inline;
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.search-btn {
+    width: 20% !important;
 }
 
 .admin-container{
@@ -97,7 +102,16 @@ header {
     margin-top: 30px;
 }
 
+// 要素の下にマージンを追加
+.bottom-space {
+    margin-bottom: 30px;
+}
+
 // リンクの下線を表示
 .link {
     text-decoration: underline;
+}
+
+.number-form {
+    width: 45% !important;
 }

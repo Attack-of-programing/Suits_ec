@@ -1,24 +1,44 @@
-# README
+# Name
+ 
+ながのCAKE Online Store
+ 
+# Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトです。
+DMM WEBCAMPのチーム開発カリキュラムで作成しました。
 
-Things you may want to cover:
+# Description
 
-* Ruby version
+1. 顧客側
+   - ながのCAKEの商品を閲覧することができます。
+   - 会員登録することでながのCAKEの商品を注文することができます。
+   - 会員登録することでながのCAKEの過去の注文履歴を閲覧することができます。
 
-* System dependencies
+2. 管理者側
+   - 商品の新規追加、編集、販売停止（売切表示）が行えます。
+   - 会員の閲覧、情報の編集、退会処理が行えます。
+   - 注文〜発送までのステータスを変更することができます。
+ 
 
-* Configuration
+# Features
+ 
+カリキュラムの必須要件以外の追加機能は下記の通りになります。
 
-* Database creation
+- 管理者が商品、ジャンル、会員を検索する機能
+- エラーメッセージの日本語化
+- 各種情報の登録、更新時のサクセスメッセージの表示
+ 
+# DEMO
 
-* Database initialization
+<img width="938" alt="DEMO" src="https://user-images.githubusercontent.com/66913121/97158646-1431d500-17bd-11eb-8f55-524ec23f1161.png">
 
-* How to run the test suite
+# Author
+ 
+1. 作成チーム
 
-* Services (job queues, cache servers, search engines, etc.)
+進撃のプログラミング
 
-* Deployment instructions
-
-* ...
+2. チームメンバー
+  - マツコ
+  - くろしん
+  - いずみ

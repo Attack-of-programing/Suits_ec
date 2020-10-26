@@ -32,7 +32,7 @@
                                 <%= f.hidden_field :product_id, value: @product.id %>
                                 <%= f.hidden_field :customer_id, value: current_customer.id %>
                                 <div class="col-sm-4">
-                                    <%= f.select :number, options_for_select((1..10).to_a), {include_blank: "個数選択"},{ class: "form-control"} %>
+                                    <%= f.select :number, options_for_select((1..10).to_a), {},{ class: "form-control"} %>
                                 </div>
                                 <%= f.submit "カートに入れる" ,class: "btn btn-primary" %>
                             <% end %>

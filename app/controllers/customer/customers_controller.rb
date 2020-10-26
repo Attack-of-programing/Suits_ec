@@ -10,7 +10,8 @@ class Customer::CustomersController < ApplicationController
   def update
     @customer = Customer.find(current_customer.id)
     if @customer.update(customer_params)
-       redirect_to customers_path(@customer),notice: "You have updated customers data successfully."
+      flash.now[:notice] = "会員情報を更新しました。"
+       redirect_to customers_path(@customer)
     else
        render "edit"
     end
@@ -26,7 +27,8 @@ class Customer::CustomersController < ApplicationController
     # ログイン、ユーザーを弾く
     reset_session
     #登録情報の消去メソッド
-    redirect_to root_path,notice: "ありがとうございました。またのご利用を心よりお待ちしております。"
+    flash.now[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private
