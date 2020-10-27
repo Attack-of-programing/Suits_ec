@@ -6,6 +6,7 @@
 <%= f.hidden_field :name %>
 <%= f.hidden_field :pay_method %>
 <%= f.hidden_field :total_price, :value => 800 + @total_price.to_i %>
+<%= f.hidden_field :shipping_address, :value => params[:order][:shipping_address] %>
 
 <div class="container">
 

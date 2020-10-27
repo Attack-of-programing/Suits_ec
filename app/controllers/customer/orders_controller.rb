@@ -61,7 +61,15 @@ class Customer::OrdersController < ApplicationController
         production_status: "着手不可",
         tax_price: cart_item.product.tax_included
       )
-    end
+      end
+      if params[:order][:shipping_address] == "2"
+        Shipping.create(
+        customer_id: @customer.id,
+        name: @order.name,
+        postcode: @order.postcode,
+        address: @order.address
+        )
+      end
 
       redirect_to thanks_orders_path
     else
