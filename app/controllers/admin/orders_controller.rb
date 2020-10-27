@@ -36,7 +36,7 @@ class Admin::OrdersController < ApplicationController
                 end
             end
             
-            flash.now[:notice] = "注文ステータスを変更しました。"
+            flash[:notice] = "注文ステータスを変更しました。"
             redirect_to admin_order_path(@order)
         else
             render :show

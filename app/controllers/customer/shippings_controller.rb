@@ -12,7 +12,7 @@ class Customer::ShippingsController < ApplicationController
   def create
     @shipping = Shipping.new(shipping_params)
     if @shipping.save
-      flash.now[:notice] = "配送先情報を登録しました。"
+      flash[:notice] = "配送先情報を登録しました。"
       redirect_to shippings_path
     else
       @shippings = Shipping.all
@@ -23,7 +23,7 @@ class Customer::ShippingsController < ApplicationController
   def destroy
      @shipping =Shipping.find(params[:id])
      @shipping.destroy
-     flash.now[:notice] = "配送先情報を削除しました。"
+     flash[:notice] = "配送先情報を削除しました。"
      redirect_to shippings_path
   end
 
@@ -34,7 +34,7 @@ class Customer::ShippingsController < ApplicationController
   def update
     @shipping =Shipping.find(params[:id])
     if @shipping.update(shipping_params)
-      flash.now[:notice] = "配送先情報を更新しました。"
+      flash[:notice] = "配送先情報を更新しました。"
       redirect_to shippings_path
     else
       render "edit"
