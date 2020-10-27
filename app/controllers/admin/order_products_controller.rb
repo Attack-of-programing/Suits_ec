@@ -21,7 +21,7 @@ class Admin::OrderProductsController < ApplicationController
             @order.update(order_status: "発送準備中")
         end
         
-        flash.now[:notice] = "製作ステータスを変更しました。"
+        flash[:notice] = "製作ステータスを変更しました。"
         redirect_to admin_order_path(@order)
     end
     

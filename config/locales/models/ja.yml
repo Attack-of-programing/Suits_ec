@@ -33,5 +33,7 @@ ja:
         after_tax_price: 税別価格
         genre: ジャンル
         genre_id: ジャンル
+        image_id: 商品画像
+        image: 商品画像
       cart_item:
         number: 数量
