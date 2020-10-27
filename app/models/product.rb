@@ -11,7 +11,7 @@ class Product < ApplicationRecord
   
   # バリデーションチェック
   # 空白時にエラー
-  validates :name, :explanation, :genre_id, :after_tax_price, presence: true
+  validates :name, :explanation, :genre_id, :after_tax_price, :image, presence: true
   # 数値以外が入力された場合はエラー
   validates :after_tax_price, numericality: { only_integer: true }
   # is_saleの値がtrue,false以外の場合はエラー
