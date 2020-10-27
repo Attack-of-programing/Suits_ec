@@ -14,11 +14,11 @@ class Customer < ApplicationRecord
 
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :last_name_kana, presence: true
-  validates :first_name_kana, presence: true
+  validates :last_name_kana, presence: true, format: { with: /\p{katakana}/}
+  validates :first_name_kana, presence: true, format: { with: /\p{katakana}/}
   validates :postcode, presence: true, length: { is: 7 }, format: { with: /\A[0-9]+\z/ }
   validates :address, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, format: {with: /\A[0-9]+\z/}
   validates :email, presence: true
 
   def full_name
