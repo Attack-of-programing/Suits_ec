@@ -1,0 +1,50 @@
+<%= render 'admin/admin_header' %>
+<div class="container">
+	<!--検索結果がない場合のメッセージ-->
+  <% if flash[:alert] %>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+  <h2 class="title">商品一覧</h2>
+  <div class="row">
+	  <!--商品一覧 -->
+		<div class="col-xs-10 col-xs-offset-1">
+			<!--商品新規登録アイコン-->
+		  <%= link_to new_admin_product_path do %>
+		  	<i class="fas fa-plus-circle fa-3x col-xs-1 col-xs-offset-11 mb-4"></i>
+		  <% end %>
+			
+	    <table class="table">
+	    	<!--商品一覧 テーブルヘッダー-->
+	    	<thead class="thead bg-primary">
+	      	<tr>
+		        <th>商品ID</th>
+		        <th>商品名</th>
+		        <th>税抜価格</th>
+		        <th>ジャンル</th>
+		        <th>ステータス</th>
+	      	<tr>
+	      <thead>
+	        
+	      <!--商品一覧 テーブルボディ-->
+	      <tbody class ="tbody bg-default">
+	        <% @products.each do |product| %>
+		        <tr>
+			        <td><%= product.id%></td>
+			        <td><%= link_to product.name, admin_product_path(product), class: "link" %></td>
+			        <td><%= (product.after_tax_price).to_s(:delimited) %></td>
+			        <td><%= product.genre.name %></td>
+			        <td>
+			        	<% if product.is_sale == true %>
+								　販売中
+								<% elsif product.is_sale == false %>
+								　売切れ
+								<% end %>
+							</td>
+		       	<tr>
+	        <% end %>
+	      </tbody>
+	   </table>
+	  <div class="text-center"><%= paginate(@products) %></div>
+		</div>
+  </div>
+</div>

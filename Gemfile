@@ -67,3 +67,6 @@ gem 'pry-byebug'
 gem 'refile' , require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
+gem 'font-awesome-sass', '~> 5.0.13'
+gem 'devise-i18n'
+gem 'rails-i18n'

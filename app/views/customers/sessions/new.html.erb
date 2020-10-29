@@ -1,0 +1,68 @@
+<%= render 'customer/customer_header' %>
+
+<div class="container">
+  <!-- エラーメッセージ表示-->
+    <%- flash.each do |name, msg| -%>
+        <p class="alert alert-danger"><%= msg %></p>
+    <%- end -%>
+  <div class="row">
+
+    <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+    <div class="col-xs-8 col-xs-offset-2" style="margin-top: 100px;">
+
+      <!--ログイン情報入力フォーム-->
+
+      <h2 class="title">会員の方はこちらからログイン</h2>
+
+      <div class="row form-group" >
+        <label class="col-xs-3 control-label" >メールアドレス</label>
+        <div class="col-xs-9">
+          <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+
+      <div class="row form-group" >
+        <label class="col-xs-3 control-label" >パスワード</label>
+        <div class="col-xs-9">
+          <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+        </div>
+      </div>
+
+
+        <!--パスワード忘れた場合リンク-->
+      <div class="row form-group">
+        <div class="col-xs-offset-8 col-xs-4" >
+          <%= link_to "=>パスワードを忘れた方はこちら" %>
+        </div>
+      </div>
+
+        <!--ログインボタン-->
+      <div class="row form-group">
+        <div class="col-xs-3 col-xs-offset-3">
+          <%= f.submit "ログイン", class: "btn btn-primary btn-block", style: "margin-top: 20px;" %>
+        </div>
+      </div>
+
+        <!--新規登録-->
+
+      <h2 class="title">登録がお済みでない方</h2>
+
+      <div class="row form-group">
+        <div class="col-xs-12">
+          <%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。
+        </div>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'customer/footer' %>
+
+
+
+
+
+
+

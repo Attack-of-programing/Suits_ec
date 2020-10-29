@@ -1,0 +1,46 @@
+<%= render 'customer/customer_header' %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <!--ジャンル検索機能の部分テンプレートの-->
+            <%= render 'customer/genres/genre_search', genres: @genres %>
+        </div>
+        <div class="col-xs-3 col-xs-offset-1">
+    	    <%= attachment_image_tag(@product, :image, :fill, 300, 220, fallback: "no_image.jpg", class:"img-responsive img-thumbnail product-image" ) %>
+      	</div>
+      	
+      	<!--商品情報の表示-->
+        <div class="col-xs-5">
+            <!--商品名-->
+            <div class="row form-group">
+      		    <h2 class="col-sm-9 control-label"><%= @product.name %></h2>
+			</div>
+            <!--商品説明-->
+            <div class="row form-group">
+      	    	<p class="col-sm-9 control-label"><%= @product.explanation %><p>
+            </div>
+            <!--価格-->
+            <div class="field">
+                <h2 class="inline">¥<%= @product.tax_included.to_s(:delimited) %></h2><span>（税込）</span>
+            </div>
+            <!--個数選択、カート追加ボタン-->
+            <% if customer_signed_in? %>
+                <div class="field">
+                    <% if @product.is_sale && @product.genre.is_active %>
+                        <div class="row form-group">
+                            <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f|  %>
+                                <%= f.hidden_field :product_id, value: @product.id %>
+                                <%= f.hidden_field :customer_id, value: current_customer.id %>
+                                <div class="col-sm-4">
+                                    <%= f.select :number, options_for_select((1..10).to_a), {},{ class: "form-control"} %>
+                                </div>
+                                <%= f.submit "カートに入れる" ,class: "btn btn-primary" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<%= render 'customer/footer' %>

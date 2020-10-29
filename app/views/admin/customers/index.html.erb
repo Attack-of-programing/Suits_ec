@@ -1,0 +1,43 @@
+<%= render 'admin/admin_header' %>
+
+<div class="container">
+  <!--検索結果がない場合のメッセージ-->
+  <% if flash[:alert] %>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+  <h2 class="title">会員一覧</h2>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <table class="table">
+        <thead class="thead bg-primary">
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody class ="tbody bg-default">
+          <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.full_name, admin_customer_path(customer.id), class: "link" %></td>
+            <td><%= customer.email %></td>
+            <td>
+            <% if customer.is_deleted? %>
+              <p>退会済み</p>
+            <% else %>
+              <p>有効</p>
+            <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="col-xs-12 text-center" >
+        <%= paginate @customers %>
+      </div>
+</div>
+</div>
+</div>

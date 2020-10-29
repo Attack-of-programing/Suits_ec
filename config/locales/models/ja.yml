@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    models:
+      customer: 会員
+    attributes:
+      customer:
+        first_name: 姓
+        last_name: 名
+        first_name_kana: セイ
+        last_name_kana: メイ
+        address: 住所
+        phone_number: 電話番号
+        postcode: 郵便番号
+        email: メールアドレス
+        password: パスワード
+      shipping: 
+        name: 宛名
+        postcode: 郵便番号
+        address: 住所
+      order: 
+        name: 宛名
+        postcode: 郵便番号
+        address: 住所
+      genre:
+        name: ジャンル名
+      admin:    
+        password: パスワード
+        email: メールアドレス
+      product: 
+        name: 商品名
+        explanation: 商品説明
+        is_sale: 販売ステータス
+        after_tax_price: 税別価格
+        genre: ジャンル
+        genre_id: ジャンル
+        image_id: 商品画像
+        image: 商品画像
+      cart_item:
+        number: 数量

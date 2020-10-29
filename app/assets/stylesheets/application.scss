@@ -1,0 +1,117 @@
+ /*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+header {
+    height: 90px;
+}
+.nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 20px;
+}
+
+.nav > li > p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 20px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+
+.navbar-left {
+    margin: 20px;
+}
+
+// サーチバーを表示するために余白を変更
+.admin-login-header-link {
+    margin: 10px 20px !important;
+}
+
+// サーチバーの余白、アイコンの設定
+.search-bar {
+    margin: 0px !important;
+    width: 70% !important;
+    display: inline;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.search-btn {
+    width: 20% !important;
+}
+
+.admin-container{
+    margin-top: 30px;
+}
+
+.title {
+    display: inline-block;
+    margin-left: 10%;
+    margin-bottom: 30px;
+    padding: 3px;
+    background-color: #f8f8f8;
+}
+
+#error_explanation {
+    color: red;
+}
+
+// 商品画像のマージンの設定
+.product-image {
+    margin-bottom: 10px;
+    background-position: center; /* 背景画像の中央表示 */
+    background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
+}
+
+// 要素のインライン化
+.inline {
+	display: inline;
+}
+
+// 上下にマージンを追加
+.field {
+    margin: 10px 0px;
+}
+
+// 要素の上にマージンを追加
+.top-space {
+    margin-top: 30px;
+}
+
+// 要素の下にマージンを追加
+.bottom-space {
+    margin-bottom: 30px;
+}
+
+// リンクの下線を表示
+.link {
+    text-decoration: underline;
+}
+
+.number-form {
+    width: 45% !important;
+}

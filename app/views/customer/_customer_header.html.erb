@@ -1,0 +1,26 @@
+<header class="navbar navbar-default">
+  <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <%= link_to root_path do %>
+        <%= image_tag "nagano_cake_logo.png", :size => '100x60' %>
+      <% end %>
+      <!--<font size="5"><strong>Suits_ec</strong></font>-->
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if customer_signed_in? %>
+          <li><p>ようこそ、<%= current_customer.first_name %>さん！</p></li>
+          <li><%= link_to ' マイページ', customers_path(current_customer), class: 'btn btn-info' %></li>
+          <li><%= link_to ' 商品一覧', products_path, class: 'btn btn-info'  %></li>
+          <li><%= link_to ' カート', cart_items_path, class: 'btn btn-info' %></li>
+          <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete, class: 'btn btn-info'  %></li>
+        <% else %>
+          <li><%= link_to ' About', about_path, class: 'btn btn-info'  %></li>
+          <li><%= link_to ' 商品一覧', products_path, class: 'btn btn-info'  %></li>
+          <li><%= link_to ' 新規登録', new_customer_registration_path, class: 'btn btn-info'  %></li>
+          <li><%= link_to ' ログイン', new_customer_session_path, class: 'btn btn-info' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

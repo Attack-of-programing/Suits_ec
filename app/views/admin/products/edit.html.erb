@@ -1,0 +1,32 @@
+<%= render 'admin/admin_header' %>
+<div class="container">
+  <!-- エラーメッセージ表示-->
+  <%= render "layouts/errors", obj: @product %>
+  <h2 class="title">商品編集</h2>
+  <div class="row">
+
+    <!-- 商品の編集フォーム -->
+    <%= form_with model: @product, url: admin_product_path, method: :patch, local: true do |f| %>
+
+    	<div class="col-xs-4">
+  	    <!--ここから　商品画像のプレビューは余裕があればAjaxで実装-->
+  	    <div class="img_field">
+          <%= attachment_image_tag(@product, :image, :fill, 300, 220, fallback: "no_image.jpg", class:"img-responsive img-thumbnail product-image" ) %>
+        </div>
+  	    <!--ここまで　商品画像のプレビューは余裕があればAjaxで実装-->
+      	<div class="field">
+      		<%= f.attachment_field :image %>
+      	</div>
+      </div>
+      
+      <div class="col-xs-8">
+        <!--商品情報入力フォームの部分テンプレート呼び出し-->
+        <%= render "product_form", f: f %>
+      	
+      	<div class="actions col-xs-9">
+  	      <%= f.submit "変更を保存", class: "btn btn-primary btn-lg pull-right" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

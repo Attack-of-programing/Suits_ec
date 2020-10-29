@@ -1,0 +1,41 @@
+<%= render 'customer/customer_header' %>
+<div class="container">
+ <div class= "row">
+ <!--エラーメッセージ表示 -->
+ <%= render 'layouts/errors',obj: @shipping %>
+    
+ <!--投稿サクセスメッセージ表示 --> 
+ <notice><%=notice %></notice> 
+   <h2 class="tag">配送先編集</h2>
+ <!--配送先新規登録画面 -->
+     <%= form_with model:@shipping, local:true do |f| %>
+      <div class = "row form-group">
+        <label class="col-xs-3 control-label" > 郵便番号(ハイフンなし)</label>
+        <div class="col-xs-2">
+        <%= f.text_field :postcode, class: "form-control", autofocus: true, autocomplete: "postcode", placeholder: "郵便番号"    %>
+        </div>
+      </div>
+      
+      <div class = "row form-group">
+        <label class="col-xs-3 control-label" > 住所</label>
+        <div class="col-xs-4">
+        <%= f.text_field :address, class: "form-control", autofocus: true, autocomplete: "address", placeholder: "住所"    %>
+        </div>
+      </div>
+      
+       <div class = "row form-group">
+        <label class="col-xs-3 control-label" > 宛名</label>
+        <div class="col-xs-2">
+        <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "address", placeholder: "宛名"    %>
+        </div>
+      </div>
+      
+      <div class="row form-group">
+        <div class="col-xs-2 col-xs-offset-6">
+          <%= f.submit "編集する", class: "btn btn-success btn-block" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <%= render 'customer/footer' %>
